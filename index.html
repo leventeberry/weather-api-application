@@ -8,28 +8,45 @@
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js" defer></script> <!-- adding DayJS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
     <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" /> <!-- adding BootStrap css-->
-    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="css/main.css">
     <title>My Weather App</title>
 </head>
 <body>
+
+    <!-- Header Section -->
     <div id="header-container">
         <h1>Weather Dashboard</h1>
     </div>
+
+    <!-- Main Content Section -->
     <div id="main-container">
+
+        <!-- Search Content Section -->
         <div id="search-container">
             <div id="search-input-container">
-
+                <div class="search-item">
+                    <input type="text" name="search-bar" id="search-bar" placeholder="Enter City">
+                </div>
+                <div class="search-item">
+                    <button type="submit">SUBMIT</button>
+                </div>
             </div>
             <div id="history-container">
-
+                <button class="history-button" id="ga-atlanta" type="button" onclick="">Atlanta</button>
+                <button class="history-button" id="oh-cleveland" type="button" onclick="">Cleveland</button>
+                <button class="history-button" id="nc-raleigh" type="button" onclick="">Raleigh</button>
             </div>
         </div>
+
+        <!-- Responce Data Section -->
         <div id="data-container">
+
+            <!-- Current Days' Forecast -->
             <div id="current-day-container">
                 <div id="current-title-container">
-                    <h1 id="current-city">Atlanta</h1>
+                    <h2 id="current-city">Atlanta</h2>
                     <span>(1/2/2024)</span>
                     <img id="current-icon" src="#" alt="Current Weather Icon">
                 </div>
@@ -37,13 +54,15 @@
                 <div class="data-text" id="current-wind">Wind: 4.26 MPH</div>
                 <div class="data-text" id="current-humid">Humidity: 58 %</div>
             </div>
+
+            <!-- 5 Day Forecast -->
             <div class="5day-container">
                 <div class="5day-title-container">
-                    <h2>5 Day Forcast</h2>
+                    <h3>5 Day Forcast</h3>
                 </div>
                 <div class="5day-forcast-container">
                     <div class="5day-forcast">
-                        <h3 id="5day-date-1">(1/3/2024)</h3>
+                        <h4 id="5day-date-1">(1/3/2024)</h4>
                         <img class="5day-icon" id="5day-icon-1" src="#" alt="Current Weather Icon">
                     </div>
                     <div class="data-text" id="temp-1">Temp: 68 °F</div>
@@ -52,7 +71,7 @@
                 </div>
                 <div class="5day-forcast-container">
                     <div class="5day-forcast">
-                        <h3 class="5day-date" id="5day-date-2">(1/4/2024)</h3>
+                        <h4 class="5day-date" id="5day-date-2">(1/4/2024)</h4>
                         <img class="5day-icon" id="5day-icon-2" src="#" alt="Current Weather Icon">
                     </div>
                     <div class="data-text" id="temp-2">Temp: 59 °F</div>
@@ -61,7 +80,7 @@
                 </div>
                 <div class="5day-forcast-container">
                     <div class="5day-forcast">
-                        <h3 class="5day-date" id="5day-date-3">(1/5/2024)</h3>
+                        <h4 class="5day-date" id="5day-date-3">(1/5/2024)</h4>
                         <img class="5day-icon" id="5day-icon-3" src="#" alt="Current Weather Icon">
                     </div>
                     <div class="data-text" id="temp-3">Temp: 59 °F</div>
@@ -70,7 +89,7 @@
                 </div>
                 <div class="5day-forcast-container">
                     <div class="5day-forcast">
-                        <h3 class="5day-date" id="5day-date-4">(1/6/2024)</h3>
+                        <h4 class="5day-date" id="5day-date-4">(1/6/2024)</h4>
                         <img class="current-icon" id="5day-icon-4" src="#" alt="Current Weather Icon">
                     </div>
                     <div class="data-text" id="temp-4">Temp: 59 °F</div>
@@ -79,7 +98,7 @@
                 </div>
                 <div class="5day-forcast-container">
                     <div class="5day-forcast">
-                        <h3 class="5day-date" id="5day-date-5">(1/7/2024)</h3>
+                        <h4 class="5day-date" id="5day-date-5">(1/7/2024)</h4>
                         <img class="current-icon" id="5day-icon-5" src="#" alt="Current Weather Icon">
                     </div>
                     <div class="data-text" id="temp-5">Temp: 59 °F</div>
