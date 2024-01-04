@@ -1,0 +1,57 @@
+
+
+/* Creating a flexbox */
+
+
+
+/* Search Container */
+
+#search-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+
+
+#search-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#history-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Data Container */
+
+#data-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Current Day Container */
+#current-day-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#current-title-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+/* 5 Day Container */
+#five-day-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#five-day-content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
