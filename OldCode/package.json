@@ -1,0 +1,35 @@
+{
+  "name": "v-weather",
+  "version": "1.0.0",
+  "description": "A weather web application build with React + Vite.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leventeberry/weather-api-application.git"
+  },
+  "keywords": [
+    "weather",
+    "api",
+    "openapi",
+    "react"
+  ],
+  "author": "LeVente Berry Jr.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leventeberry/weather-api-application/issues"
+  },
+  "homepage": "https://github.com/leventeberry/weather-api-application#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.3"
+  }
+}

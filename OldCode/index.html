@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" defer></script> <!-- adding jQuery library -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" defer></script> <!-- adding jQueryUI CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js" defer></script> <!-- adding DayJS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" /> <!-- adding BootStrap css-->
+    <link rel="stylesheet" href="css/main.css">
+    <title>My Weather App</title>
+</head>
+<body class="container-fluid">
+
+    <!-- Header Section -->
+    <div class="container-fluid text-center p-3 bg-primary text-white" id="header-container">
+        <h1>Weather Dashboard</h1>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="row" id="main-container">
+
+        <!-- Search Content Section -->
+        <div class="col-3" id="search-container">
+            <div id="search-input-container">
+                <div class="search-item p-1">
+                    <span id="search-title">Search for a City:</span>
+                </div>
+                <div class="search-item p-1 mb-2 w-100">
+                    <input class="rounded border border-dark p-2 w-100" type="text" name="search-bar" id="search-bar" placeholder="Cleveland">
+                </div>
+                <div class="search-item mb-2 w-100">
+                    <button class="btn-primary rounded p-2 w-100 text-center" type="submit" onclick="getCity()">Search</button>
+                </div>
+            </div>
+
+            <div class="border-top border-dark mt-1 mb-1"></div>
+            
+            <div class="mt-2" id="history-container">
+                <button class="history-button btn-primary text-center rounded p-2 mb-2" id="ga-atlanta" type="button" onclick="">Atlanta</button>
+                <button class="history-button btn-primary text-center rounded p-2 mb-2" id="oh-cleveland" type="button" onclick="">Cleveland</button>
+                <button class="history-button btn-primary text-center rounded p-2 mb-2" id="nc-raleigh" type="button" onclick="">Raleigh</button>
+            </div>
+        </div>
+
+        <!-- Responce Data Section -->
+        <div class="col-9" id="data-container">
+
+            <!-- Current Days' Forecast -->
+            <div class="p-2 m-3 border border-dark" id="current-day-container">
+                <div class="mb-3" id="current-title-container">
+                    <h2 class="m-1" id="current-city">Atlanta</h2>
+                    <h3 class="m-1">1/2/2024</h3>
+                    <img class="m-1" id="current-icon" src="img/sun.png" alt="Current Weather Icon">
+                </div>
+                <div class="data-text p-1" id="current-temp">Temp: 68 °F</div>
+                <div class="data-text p-1" id="current-wind">Wind: 4.26 MPH</div>
+                <div class="data-text p-1" id="current-humid">Humidity: 58 %</div>
+            </div>
+
+            <!-- 5 Day Forecast -->
+            <div class="m-3" id="five-day-container">
+                <div class="five-day-title-container pb-2">
+                    <h3>5-Day Forecast:</h3>
+                </div>
+                <div class="" id="five-day-content-container">
+                    <div class="five-day-forcast-container bg-secondary text-white p-2">
+                        <div class="five-day-forcast">
+                            <h4 id="five-day-date-1">1/3/2024</h4>
+                            <img class="five-day-icon" id="five-day-icon-1" src="img/sun.png" alt="Current Weather Icon">
+                        </div>
+                        <div class="data-text p-1" id="temp-1">Temp: 68 °F</div>
+                        <div class="data-text p-1" id="wind-1">Wind: 4.26 MPH</div>
+                        <div class="data-text p-1" id="humid-1">Humidity: 58 %</div>
+                    </div>
+                    <div class="five-day-forcast-container bg-secondary text-white p-2">
+                        <div class="five-day-forcast">
+                            <h4 class="five-day-date" id="five-day-date-2">1/4/2024</h4>
+                            <img class="five-day-icon" id="five-day-icon-2" src="img/rainy.png" alt="Current Weather Icon">
+                        </div>
+                        <div class="data-text p-1" id="temp-2">Temp: 59 °F</div>
+                        <div class="data-text p-1" id="wind-2">Wind: 5.82 MPH</div>
+                        <div class="data-text p-1" id="humid-2">Humidity: 43 %</div>
+                    </div>
+                    <div class="five-day-forcast-container bg-secondary text-white p-2">
+                        <div class="five-day-forcast">
+                            <h4 class="five-day-date" id="five-day-date-3">1/5/2024</h4>
+                            <img class="five-day-icon" id="five-day-icon-3" src="img/cloudy.png" alt="Current Weather Icon">
+                        </div>
+                        <div class="data-text p-1" id="temp-3">Temp: 59 °F</div>
+                        <div class="data-text p-1" id="wind-3">Wind: 5.82 MPH</div>
+                        <div class="data-text p-1" id="humid-3">Humidity: 43 %</div>
+                    </div>
+                    <div class="five-day-forcast-container bg-secondary text-white p-2">
+                        <div class="five-day-forcast">
+                            <h4 class="five-day-date" id="five-day-date-4">1/6/2024</h4>
+                            <img class="current-icon" id="five-day-icon-4" src="img/cloudy.png" alt="Current Weather Icon">
+                        </div>
+                        <div class="data-text p-1" id="temp-4">Temp: 59 °F</div>
+                        <div class="data-text p-1" id="wind-4">Wind: 5.82 MPH</div>
+                        <div class="data-text p-1" id="humid-4">Humidity: 43 %</div>
+                    </div>
+                    <div class="five-day-forcast-container bg-secondary text-white p-2">
+                        <div class="five-day-forcast p-1">
+                            <h4 class="five-day-date" id="five-day-date-5">1/7/2024</h4>
+                            <img class="current-icon" id="five-day-icon-5" src="img/rainy.png" alt="Current Weather Icon">
+                        </div>
+                        <div class="data-text p-1" id="temp-5">Temp: 59 °F</div>
+                        <div class="data-text p-1" id="wind-5">Wind: 5.82 MPH</div>
+                        <div class="data-text p-1" id="humid-5">Humidity: 43 %</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
