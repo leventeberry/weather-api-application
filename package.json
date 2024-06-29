@@ -28,6 +28,7 @@
   "homepage": "https://github.com/leventeberry/weather-api-application#readme",
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.24.0"
