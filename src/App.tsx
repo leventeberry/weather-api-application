@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import 'dotenv/config'
 import './App.css';
+import React from 'react';
 
 function showError(error) {
   switch(error.code) {
@@ -35,15 +35,15 @@ function getUserLocation() {
 }
 
 export default function App() {
-  const [data, setData] = useState({});
+  const [geo, setGeo] = useState(null);
 
   useEffect(() => {
-    console.log(data);
-  }, [data]);
+    console.log(geo);
+  }, []);
 
   return (
     <>
-      <button type="button" onClick={() => {setData(getUserLocation())}}>Find Location</button>
+      <button type="button" onClick={() => {setGeo(getUserLocation())}}>Find Location</button>
     </>
   )
 }

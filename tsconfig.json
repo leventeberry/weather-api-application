@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "outDir": "build",
+        "noEmit": true,
+        "allowJs": true,
+        "checkJs": true,
+        "jsx": "react",
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+    },
+    "include": ["./src/**/*"],
+}

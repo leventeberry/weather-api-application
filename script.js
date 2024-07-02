@@ -45,9 +45,38 @@ function addHistoryItem() {
 
 }
 
-function add5dayForecast() {
-    
+/*
+async function add5dayForecast(lon, lat, cnt) {
+    const apiCall = `api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=${cnt}&appid=${process.env.API_KEY}`;
+    try {
+        const response = await fetch(apiCall);
+        if (!response.ok) {
+            throw new Error(`HTTP Error! Status: ${response.status}`);
+        }
+        const data = response.json();
+        if (data.length === 0) {
+            throw new Error('No data found for the specified city');
+        }
+        console.log(data);
+        return data;
+    } catch (error) {
+        console.error(`Error: ${error}`);
+    }
 }
+*/
+
+async function new5DayForcast(lon, lat, cnt) {
+    const apiCall = `api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=${cnt}&appid=${process.env.API_KEY}`;
+    await fetch(apiCall)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP Error! Status: ${response.status}`);
+            } else {
+                return response.json();
+            }})
+        .catch((error) => {console.error(`Error Message: ${error}`);});
+}
+
 
 function getCity() {
     const userSubmit = $('#search-bar');
@@ -64,12 +93,11 @@ async function getWeatherData(latitude, longitude) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        const data = await response.json();
+        const data = response.json();
         if (data.length === 0) {
             throw new Error('No data found for the specified city');
         }
-        const searchData = data;
-        console.log(searchData);
+        console.log(data);
     } catch (error) {
         console.error(error);
         // alert the user and suggest trying again
