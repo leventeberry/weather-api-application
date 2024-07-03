@@ -65,7 +65,7 @@ async function add5dayForecast(lon, lat, cnt) {
 }
 */
 
-async function new5DayForcast(lon, lat, cnt) {
+async function new5DayForcast(lon, lat, cnt = 1) {
     const apiCall = `api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=${cnt}&appid=${process.env.API_KEY}`;
     await fetch(apiCall)
         .then((response) => {

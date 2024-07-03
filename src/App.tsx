@@ -2,6 +2,22 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import React from 'react';
 
+const apiKey = "9b061e72643e0bdb46c7312b5e55653a"
+
+type Geo = {
+  lat: number,
+  lon: number
+}
+
+function DisplayWeather({lon, lat}) {
+  return (
+    <>
+      <p>Longitude: {lon}</p>
+      <p>Latitude: {lat}</p>
+    </>
+  )
+}
+
 function showError(error) {
   switch(error.code) {
     case error.PERMISSION_DENIED:
@@ -19,31 +35,32 @@ function showError(error) {
   }
 }
 
-function getUserLocation() {
-  
-  const userLocation = {
-    long: 0,
-    lat: 0,
-  }
-
-  navigator.geolocation.getCurrentPosition((position) => {
-    userLocation.long = position.coords.longitude;
-    userLocation.lat = position.coords.latitude;
-  }, (error) => showError(error));
-
-  return userLocation;
-}
-
 export default function App() {
-  const [geo, setGeo] = useState(null);
+  const [geo, setGeo] = useState<Geo | null>(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log(geo);
+    navigator.geolocation.getCurrentPosition((position) => {
+      return setGeo({ 
+        lon: position.coords.longitude,
+        lat: position.coords.latitude
+      })
+    }, (error) => showError(error));
   }, []);
 
   return (
     <>
-      <button type="button" onClick={() => {setGeo(getUserLocation())}}>Find Location</button>
+        {geo ? (
+          <>
+            <DisplayWeather 
+              lon={geo.lon}
+              lat={geo.lat}
+            />
+          </>
+        ) : (
+          <p>Loading...</p>
+        )}
     </>
   )
 }
