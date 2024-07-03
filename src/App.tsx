@@ -2,11 +2,22 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import React from 'react';
 
-const apiKey = "9b061e72643e0bdb46c7312b5e55653a"
+const apiKey = "CG-uopEPENpX5RD47bCCwr2b8gq"
+const url = ``
 
 type Geo = {
   lat: number,
   lon: number
+}
+
+async function getWeatherData({lon, lat}){
+  await fetch(`https://pro-api.coingecko.com/api/v3/exchanges`)
+        .then((response) => {response.json()})
+        .then((data) => {
+          console.log(data);
+          return data;
+        })
+        .catch((error) => {alert(`There was an error: ${error}`)});
 }
 
 function DisplayWeather({lon, lat}) {
@@ -42,6 +53,9 @@ export default function App() {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
+
+      getWeatherData({lon: position.coords.longitude.toFixed(2), lat: position.coords.latitude.toFixed(2)});
+
       return setGeo({ 
         lon: position.coords.longitude,
         lat: position.coords.latitude
