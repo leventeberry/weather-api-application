@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import './App.css';
+import './assets/css/app.css';
 import React from 'react';
 
-const apiKey = "CG-uopEPENpX5RD47bCCwr2b8gq"
+const apiKey = "7fe83d2b3a50417ffa22addadf331d55"
 const url = ``
 
 type Geo = {
@@ -11,7 +11,7 @@ type Geo = {
 }
 
 async function getWeatherData({lon, lat}){
-  await fetch(`https://pro-api.coingecko.com/api/v3/exchanges`)
+  await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`)
         .then((response) => {response.json()})
         .then((data) => {
           console.log(data);
