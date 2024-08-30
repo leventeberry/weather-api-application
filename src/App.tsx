@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './assets/css/app.css';
 import React from 'react';
+import '../'
 
 const apiKey = "7fe83d2b3a50417ffa22addadf331d55"
 const url = ``
@@ -10,7 +11,7 @@ type Geo = {
   lon: number
 }
 
-async function getWeatherData({lon, lat}){
+async function getWeatherData({lon, lat}: Geo){
   await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`)
         .then((response) => {response.json()})
         .then((data) => {
@@ -20,7 +21,7 @@ async function getWeatherData({lon, lat}){
         .catch((error) => {alert(`There was an error: ${error}`)});
 }
 
-function DisplayWeather({lon, lat}) {
+function DisplayWeather({lon, lat}: Geo) {
   return (
     <>
       <p>Longitude: {lon}</p>
@@ -29,7 +30,7 @@ function DisplayWeather({lon, lat}) {
   )
 }
 
-function showError(error) {
+function showError(error: any) {
   switch(error.code) {
     case error.PERMISSION_DENIED:
       alert("User denied the request for Geolocation.");
@@ -54,7 +55,7 @@ export default function App() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
 
-      getWeatherData({lon: position.coords.longitude.toFixed(2), lat: position.coords.latitude.toFixed(2)});
+      getWeatherData({lon: Number(position.coords.longitude.toFixed(2)), lat: Number(position.coords.latitude.toFixed(2))});
 
       return setGeo({ 
         lon: position.coords.longitude,

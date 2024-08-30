@@ -1,5 +1,5 @@
 
-const apiKey = "3db02dfc262d4f0a750a4b828e67829e";
+const apiKey = "7fe83d2b3a50417ffa22addadf331d55";
 var searchHistory = [];
 
 // set the search history
